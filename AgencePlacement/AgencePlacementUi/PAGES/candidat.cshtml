@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Agence de placement </title>
+    <!-- Font Awesome Icons
+            <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        -->
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="../css/creative.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+    
+    <!-- Navigation -->
+    @using DataBaseConnection;
+    @using DataBaseConnection.Table
+    @{
+        bool valid = true;
+        bool get = true;
+
+        if (IsPost)
+        {
+            get = false;
+        }
+
+        var data = new RefTableConnection();
+
+        Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
+
+    }
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.cshtml">CYBERTECH</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.cshtml">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="account.cshtml">Login / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead" style="height:auto;">
+        <div class="row ">
+            <div class="col-md-auto align-self-md-auto" style="width:10%"></div>
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+
+                <div class="col-lg-10 align-self-end">
+
+                    <h1 class="text-white navbar-brand js-scroll-trigger">Votre profil  </h1> <br>
+                    <h3 class="text-white navbar-brand js-scroll-trigger">@candidat.data["candidat_prenom"] &nbsp; @candidat.data["candidat_nom"]  (candidat)</h3> <br><br>
+                  
+                    <form name="job" class="text-white" method="post">
+
+                        Poste :<br>
+                        <input value="@candidat.data["poste"]" type="text" name="poste" list="posteList" autocomplete="on" spellcheck="true">
+                        <datalist id="posteList">
+                            @{List<string> poste = data.GetPoste(); }
+                            @foreach (string s in poste)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!poste.Contains(Request.Form["poste"]) && get == false)
+                        {
+                            <font color="red">* Choisir un des postes proposés</font>
+                        }
+                        @{ if (!poste.Contains(Request.Form["poste"])) { valid = false; }
+                        }
+                        <br>
+                        Domaine :<br>
+                        <input value="@candidat.data["domaine"]" type="text" name="domaine" list="domaineList">
+                        <datalist id="domaineList">
+                            @{List<string> domaine = data.GetDomaine(); }
+                            @foreach (string s in domaine)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!domaine.Contains(Request.Form["domaine"]) && get == false)
+                        {
+                            <font color="red">* Choisir un des domaine proposés</font>
+                        }
+                        @{ if (!domaine.Contains(Request.Form["domaine"])) { valid = false; }
+                        }
+                        <br>
+                        Région :<br>
+                        <input value="@candidat.data["region"]" type="text" name="region" list="regionList">
+                        <datalist id="regionList">
+                            @{List<string> region = data.GetRegion(); }
+                            @foreach (string s in region)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!region.Contains(Request.Form["region"]) && get == false)
+                        {
+                            <font color="red">* Choisir une des régions proposés</font>
+                        }
+                        @{ if (!region.Contains(Request.Form["region"])) { valid = false; }
+                        }
+                        <br>
+                        Salaire :<br>
+                        <input value="@candidat.data["salaire"]" type="text" name="salaire" list="salaireList">
+                        <datalist id="salaireList">
+                            @{List<string> salaire = data.GetSalaire(); }
+                            @foreach (string s in salaire)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!salaire.Contains(Request.Form["salaire"]) && get == false)
+                        {
+                            <font color="red">* Choisir un des salaires proposés</font>
+                        }
+                        @{ if (!salaire.Contains(Request.Form["salaire"])) { valid = false; }
+                        }
+                        <br>
+                        Horaire :<br>
+                        <input value="@candidat.data["horaire"]" type="text" name="horaire" list="horaireList">
+                        <datalist id="horaireList">
+                            @{List<string> horaire = data.GetHoraire(); }
+                            @foreach (string s in horaire)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!horaire.Contains(Request.Form["horaire"]) && get == false)
+                        {
+                            <font color="red">* Choisir une des horaires proposées</font>
+                        }
+                        @{ if (!horaire.Contains(Request.Form["horaire"])) { valid = false; }
+                        }
+                        <br>
+                        Diplome pertinent :<br>
+                        <input value="@candidat.data["diplome"]" type="text" name="diplome" list="diplomeList">
+                        <datalist id="diplomeList">
+                            @{List<string> diplome = data.GetDiplome(); }
+                            @foreach (string s in diplome)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!diplome.Contains(Request.Form["diplome"]) && get == false)
+                        {
+                            <font color="red">* Choisir un des diplomes proposés</font>
+                        }
+                        @{ if (!diplome.Contains(Request.Form["diplome"])) { valid = false; }
+                        }
+                        <br>
+                        Permis de conduire :<br>
+                        <input value="@candidat.data["permis_conduire"]" type="text" name="permis" list="permisList">
+                        <datalist id="permisList">
+                            @{List<string> permis = data.GetPermisConduire(); }
+                            @foreach (string s in permis)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!permis.Contains(Request.Form["permis"]) && get == false)
+                        {
+                            <font color="red">* Choisir un des permis proposés</font>
+                        }
+                        @{ if (!permis.Contains(Request.Form["permis"])) { valid = false; }
+                        }
+                        <br>
+                        Expérience : <br>
+                        <input value="@candidat.data["experience"]" type="text" name="experience" list="experienceList">
+                        <datalist id="experienceList">
+                            @{ List<string> experience = data.GetExperience();}
+                            @foreach (string s in experience)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!experience.Contains(Request.Form["experience"]) && get == false)
+                        {
+                            <font color="red">* Choisir une des expériences proposées</font>
+                        }
+                        @{ if (!experience.Contains(Request.Form["experience"])) { valid = false; }
+                        }
+                        <br>
+
+                        Langue :<br>
+                        <input value="@candidat.data["langue"]" type="text" name="langue" list="langueList">
+                        <datalist id="langueList">
+                            @{List<string> langue = data.GetLangue(); }
+                            @foreach (string s in langue)
+                            {
+                                <option value="@s" />
+                            }
+                        </datalist>
+                        <br>
+                        @if (!langue.Contains(Request.Form["langue"]) && get == false)
+                        {
+                            <font color="red">* Choisir une des langues proposé</font>
+                        }
+                        @{ if (!langue.Contains(Request.Form["langue"])) { valid = false; }
+                        }
+                        <br>
+
+                        <!--
+        add your cv if you have one : <input type="file" name="myFile"><br><br>
+        -->
+                        <button type="submit" class="btn btn-default" style="background-color :cadetblue; color : white ;
+                  border-color : black ; font-size : 15px">
+                            Mise à jour du profil
+                        </button>
+                        <br><br><br>
+                    </form>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+                @using AgencePlacementUi.Class
+                @{
+                    var jobs = data.GetMatchCandidats(int.Parse(candidat.data["id"]));
+
+                }
+                <h1 class="text-white navbar-brand js-scroll-trigger">Vos offres  </h1>
+
+                <br>
+                <h3 class="text-white navbar-brand js-scroll-trigger">@jobs.Count offre(s) classés par pertinence</h3> &nbsp;
+
+
+                <br>
+                <button type="button" class="btn btn-default" style="background-color :cadetblue; color : white ;
+                  border-color : black ; font-size : 15px" onclick="location.href='candidat.cshtml?name=@int.Parse(Request.Params["name"])';">
+                    Refresh
+                </button> <br > <br >
+                <div class="btn-group" style="display:block; width:50%; max-height:60%; overflow-y:scroll;">
+                    @if (jobs.Count < 1)
+                    {<button style="width:100%;">Aucune offre</button>}
+
+                    @foreach (MatchCandidat c in jobs)
+                    {
+                        <button style="width:100%;" onclick="location.href='MatchCandidat.cshtml?name=@int.Parse(Request.Params["name"])&offer=@c.data["id"]';">@c.data["nom"]</button>
+                    }
+
+
+                </div>
+
+
+                @{
+                    if (valid && !get)
+                    {
+                        candidat.data["poste"] = Request["poste"];
+                        candidat.data["domaine"] = Request["domaine"];
+                        candidat.data["region"] = Request["region"];
+                        candidat.data["salaire"] = Request["salaire"];
+                        candidat.data["horaire"] = Request["horaire"];
+                        candidat.data["diplome"] = Request["diplome"];
+                        candidat.data["permis_conduire"] = Request["permis"];
+                        candidat.data["experience"] = Request["experience"];
+                        candidat.data["langue"] = Request["langue"];
+
+
+                        data.UpdateCandidat(candidat);
+                        Response.Redirect("candidat.cshtml?name=" + int.Parse(Request.Params["name"]));
+
+
+
+
+                    }
+
+
+
+                }
+
+
+
+            </div>
+        </div>
+    </header>
+
+    @{
+
+
+
+
+    }
+</body>
+</html>

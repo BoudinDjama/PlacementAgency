@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Agence de placement </title>
+    <!-- Font Awesome Icons
+            <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        -->
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="../css/creative.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+
+
+    <!-- Navigation -->
+    @using DataBaseConnection;
+    @using DataBaseConnection.Table
+    @using AgencePlacementUi.Class
+    @{
+       
+
+      
+
+        var data = new RefTableConnection();
+
+        Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
+        Offer offer = data.GetOffer(int.Parse(Request.Params["offer"]));
+        Candidat employeur = data.GetEmployeur(int.Parse(offer.data["id_employeur"]));
+
+    }
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.cshtml">CYBERTECH</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.cshtml">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="account.cshtml">Login / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead" style="height:auto;">
+        <button style="width:100%;" onclick="location.href='candidat.cshtml?name=@int.Parse(Request.Params["name"])';">Retour</button>
+        <br > <br > <br >
+        <div class="row ">
+            <div class="col-md-auto align-self-md-auto" style="width:10%"></div>
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+
+              
+
+                    <h2 style="color:white">@offer.data["nom"] </h2>
+                <br />
+                    <p style="color:white">Description: @offer.data["descri"]</p>
+                    <p style="color:white">Poste: @data.GetFieldById(int.Parse(offer.data["poste"]), "poste")</p style="color:white">
+                    <p style="color:white">Domaine: @data.GetFieldById(int.Parse(offer.data["domaine"]), "domaine")</p style="color:white">
+                    <p style="color:white">Région: @data.GetFieldById(int.Parse(offer.data["region"]), "region")</p style="color:white">
+
+                    <p style="color:white">Diplome: @data.GetFieldById(int.Parse(offer.data["diplome"]), "diplome")</p>
+                    <p style="color:white">Permis: @data.GetFieldById(int.Parse(offer.data["permis_conduire"]), "permis_conduire")</p>
+                    <p style="color:white">Langue: @data.GetFieldById(int.Parse(offer.data["langue"]), "langue")</p>
+                    <p style="color:white">Expérience: @data.GetFieldById(int.Parse(offer.data["experience"]), "experience")</p>
+                    <p style="color:white">Salaire: @data.GetFieldById(int.Parse(offer.data["salaire"]), "salaire")</p>
+                    <p style="color:white">Horaire: @data.GetFieldById(int.Parse(offer.data["horaire"]), "horaire")</p>
+                    
+               
+            </div >
+                            <div class="col-md-auto align-self-md-auto" style="width:45%">
+                               
+                                    <h2 style="color:white;">Coordonnées de l'employeur :</h2>
+                                    <br />
+                                <p style="color:white">Nom: @employeur.data["prenom"]  &nbsp; @employeur.data["nom"]</p>
+                                    <p style="color:white">Titre: @employeur.data["titre"] </p>
+                                    <p style="color:white">Description: @employeur.data["descri"] </p>
+                                    <p style="color:white">Description de l'entrprise: @employeur.data["entreprise_descri"] </p>
+                                    <p style="color:white">Email: @employeur.data["email"] </p>
+                                    <p style="color:white">Telephone: @employeur.data["telephone"] </p>
+                                    <p style="color:white">Préférence: @data.GetFieldById(int.Parse(employeur.data["com_pref"]), "type_communication") </p>
+
+                               
+
+                                
+                            </div > 
+
+        </div>
+        <br /><br /><br /><br /><br /><br /><br /><br />
+</header>
+
+    @{
+
+
+	
+
+    }
+</body>
+</html>
+

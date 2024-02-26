@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Agence de placement </title>
+	<!-- Font Awesome Icons -->
+	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<!-- Theme CSS - Includes Bootstrap -->
+	<link href="../css/creative.css" rel="stylesheet">
+</head>
+<body id="page-top">
+	<!-- Navigation -->
+	
+	<!-- Masthead -->
+	<header class="masthead" style="height:auto">
+
+
+		
+
+		<script type="text/javascript">
+			var count = 6;
+			var redirect = "index.cshtml";
+
+			function countDown() {
+				var timer = document.getElementById("timer");
+				if (count > 0) {
+					count--;
+					timer.innerHTML = "<span style='color: white; margin-left: 20pt' >Thank you for registering, Redirecting you to your account page in <color> " + count + " seconds.";
+					setTimeout("countDown()", 1000);
+				} else {
+					location.href = redirect;
+				}
+			}
+		</script>
+
+		
+		<br>
+
+		<span id="timer">
+			<script type="text/javascript">countDown();</script>
+		</span>
+
+	</header>
+</body>
+</html>

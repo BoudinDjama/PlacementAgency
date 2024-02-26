@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Agence de placement </title>
+    <!-- Font Awesome Icons
+            <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        -->
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="../css/creative.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    @using DataBaseConnection;
+    @using DataBaseConnection.Table;
+    @{ 
+        var data = new RefTableConnection();
+        data.TestConnection();
+    }
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.cshtml">CYBERTECH</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="account.cshtml">Login / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead" style="height:auto">
+        <div class="row ">
+            <div class="col-md-auto align-self-md-auto" style="width:10%"></div>
+
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+                <div class="col-lg-10 align-self-end">
+
+                    <h1 class="text-white navbar-brand js-scroll-trigger">Register  </h1> <br>
+
+
+                     <form data-toggle="validator" role="form" name="registry" class="text-white" method="post">
+                        Title : (exemple : Docteur)<br>
+							 <input type="text" name="Title" maxlength="50" required /><br><br>
+
+						 First name : <font color="red">*</font> <br>
+							 <input type="text" name="Prenom" maxlength="50" required /><br><br>
+
+                        Last name : <font color="red">*</font><br>
+							 <input type="text" name="Nom" maxlength="50" required/><br><br>
+
+                        Phone number : <br>
+							 <input type="text" name="NoTel" maxlength="50" pattern="(?:\(\d{3}\)|\d{3})[- ]?\d{3}[- ]?\d{4}"  title="Enter a valid phone number"/><br><br>
+
+                        Email : <font color="red">*</font><br>
+							 <input type="email" name="Email" maxlength="255"  required /><br><br>
+					
+                        Password : <font color="red">*</font><br>
+							 <input type="password"  name="Password" maxlength="50" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="UpperCase, LowerCase, Number/SpecialChar and minmum 8 Characters" /><br><br>
+						 	
+
+						Confirm password : <font color="red">*</font><br>
+							 <input type="password" name="ConfirmPassword" maxlength="50"  required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="UpperCase, LowerCase, Number/SpecialChar and minmum 8 Characters"/><span id="wrongPass" runat="server" > </span><br><br>
+                        
+						Description : <br>
+							 <input type="text" name="Description" maxlength="1500" /><br><br>
+							
+						
+
+                        Prefered communication :
+                        <br>
+                        @{List<string> com = data.GetTypeCommunication(); }
+
+                        <select id="com" name="com">
+                            @foreach (string s in com)
+                            {
+                                <option value="@s"> @s</option>
+                            }
+                        </select>
+
+                        <br><br>
+                        Vous êtes ? :
+                        <br>
+                        <label><input type="radio" onclick="EmployeurChecked()" name="type" id="EmployeurCheck" value="Employeur"> Employeur </label><br>
+                        <label> <input type="radio" onclick="CandidatChecked()" name="type" id="CandidatCheck" value="Chercheur d'emploi" checked> Candidat</label><br>
+                        <br>
+
+                        <div id="affiche" style="display:none">
+                            Company name : <font color="red">*</font><br>
+                            <input type="text" name="CompName" id="CompName" maxlength="50" /><br>
+                            <br>
+
+                            Company description : <font color="red">*</font><br>
+                            <input type="text" name="CompDesc" id="CompDesc" maxlength="50" /><br>
+                            <br>
+                        </div>
+
+                        <!-- <input type="submit" value="Register"> -->
+                        <input name="sub" type="submit" value="Register" runat="server" onclick="Submit_Click()" class="btn btn-default"
+                               style="background-color : cornflowerblue; color : white ;
+                  border-color : black ; font-size : 15px; background-color:cadetblue" />
+                        <br>
+                        <br />
+                        <br />
+                        <script>
+
+								//Function to validate password
+								function validatePassword() {
+									if (document.getElementById("Password") != document.getElementById("ConfirmPassword")) {
+										confirm_password.setCustomValidity("Passwords Don't Match");
+									} else {
+										confirm_password.setCustomValidity('');
+									}
+								}
+
+							
+                                //When clicked, 2 fields appear
+                                function EmployeurChecked() {
+                                    document.getElementById('affiche').style.display = "block";
+                                }
+
+                                //When clicked if already there, the two fields will disapear
+                                function CandidatChecked() {
+                                    document.getElementById('affiche').style.display = "none";
+                                }
+
+                                
+
+                        </script>
+
+                        
+
+                        @{
+                            /*
+                            if (!Request["type"].IsEmpty())
+                            {
+
+                                if (AccountType.Equals("Employeur")) { Response.Redirect("../Employeur.html"); }
+                                else if (AccountType.Equals("Chercheur d'emploi")) { Response.Redirect("candidat.cshtml"); }
+                            }
+
+                */
+
+                        } 
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+                <div class="col-lg-10 align-self-end">
+					<form name="registry" class="text-white" method="post">
+						@{
+							string email = "", password = "";
+							if (IsPost)
+							{
+								email = Request["loginEmail"];
+								password = Request["Password"];
+							}
+						}
+						<h1 class="text-white navbar-brand js-scroll-trigger">Login  </h1> <br>
+						Email : <br>
+						<input type="email" name="loginEmail" maxlength="255" value="@email" /><br><br>
+						@{
+							int loginId;
+							string feedback = "";
+							if (IsPost && Request["sub"].Equals("Login"))
+							{
+								if (Request["loginType"].Equals("Chercheur d'emploi"))
+								{
+									if (data.AccountExists("CANDIDAT", Request.Form["loginEmail"].Trim()))
+									{
+										feedback = "";
+									}
+									else
+									{
+
+										feedback = "Compte inexistant. Veuillez d'abord vous enregistrer";
+									}
+								}
+								else if (Request["loginType"].Equals("Employeur"))
+								{
+									if (data.AccountExists("EMPLOYEUR", Request.Form["loginEmail"].Trim()))
+									{
+										feedback = "";
+									}
+									else
+									{
+
+										feedback = "Compte inexistant. Veuillez d'abord vous enregistrer";
+									}
+								}
+
+							}
+
+						}
+						<font color="red">@feedback</font>
+						<br>
+						Password : <br>
+						<input type="password" name="Password" value="@password" maxlength="50" /><br><br>
+
+						Vous êtes ? :
+						<br>
+						<label><input type="radio" name="loginType" id="typeLE" value="Employeur"> Employeur </label><br>
+						<label> <input type="radio" name="loginType" id="typeLC" value="Chercheur d'emploi" checked> Candidat</label><br>
+						<br>
+
+						<!-- <input type="submit" value="Register"> -->
+						<input name="sub" id="subButton" type="submit" value="Login" runat="server" onclick="Submit_Click()" class="btn btn-default"
+							   style="background-color : cornflowerblue; color : white ;
+                  border-color : black ; font-size : 15px; background-color:cadetblue" />
+
+
+
+
+					</form>
+                </div>
+
+            </div>
+
+        </div>
+        @using AgencePlacementUi.Class;
+        @{
+            if (IsPost)
+            {
+
+                Requete requete = new Requete();
+                Employeur employeur = new Employeur();
+                Candidat candidat = new Candidat();
+
+                var submitType = Request["sub"];
+                var registerType = Request["type"];
+                var loginType = Request["loginType"];
+                if (submitType.Equals("Register"))
+                {
+                    // register a new EMPLOYEUR
+                    if (registerType.Equals("Employeur"))
+                    {
+                        employeur.data["nom"] = Request.Form["Nom"];
+                        employeur.data["prenom"] = Request.Form["Prenom"];
+                        employeur.data["email"] = Request.Form["Email"];
+                        employeur.data["titre"] = Request.Form["Title"];
+                        employeur.data["telephone"] = Request.Form["NoTel"];
+                        employeur.data["descri"] = Request.Form["Description"];
+                        employeur.data["com_pref"] = Request.Form["com"];
+                        employeur.data["pass"] = Request.Form["Password"];
+                        employeur.data["entreprise"] = Request.Form["CompName"];
+                        employeur.data["entreprise_descri"] = Request.Form["CompDesc"];
+
+                        requete.InsertEmployeur(employeur);
+
+                    }
+                    // register a new CANDIDAT
+                    else if (registerType.Equals("Chercheur d'emploi"))
+                    {
+                        candidat.data["candidat_nom"] = Request.Form["Nom"];
+                        candidat.data["candidat_prenom"] = Request.Form["Prenom"];
+                        candidat.data["candidat_email"] = Request.Form["Email"];
+                        candidat.data["candidat_titre"] = Request.Form["Title"];
+                        candidat.data["candidat_telephone"] = Request.Form["NoTel"];
+                        candidat.data["candidat_descri"] = Request.Form["Description"];
+                        candidat.data["communication_preferee"] = Request.Form["com"];
+                        candidat.data["pass"] = Request.Form["Password"];
+
+
+
+
+                        requete.InsertCandidat(candidat);
+                    }
+                }
+                else if (submitType.Equals("Login"))
+                {
+                    // login an EMPLOYEUR
+                    if (loginType.Equals("Employeur"))
+                    {
+                        if (data.AccountExists("EMPLOYEUR", Request.Form["loginEmail"].Trim()))
+                        {
+                            loginId = data.GetAccountId("EMPLOYEUR", Request.Form["loginEmail"].Trim());
+                            Response.Redirect("Employeur.cshtml?name=" + loginId);
+
+
+                        }
+                    }
+                    // login a CANDIDAT
+                    else if (loginType.Equals("Chercheur d'emploi"))
+                    {
+                        if (data.AccountExists("CANDIDAT", Request.Form["loginEmail"].Trim())) {
+                            loginId = data.GetAccountId("CANDIDAT", Request.Form["loginEmail"].Trim());
+                            Response.Redirect("candidat.cshtml?name=" + loginId);
+
+
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+    </header>
+
+</body>
+</html>
+

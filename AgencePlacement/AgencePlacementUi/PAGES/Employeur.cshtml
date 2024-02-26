@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Agence de placement </title>
+	<!-- Font Awesome Icons -->
+	<!-- Theme CSS - Includes Bootstrap -->
+	<link href="../css/creative.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.cshtml">CYBERTECH</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.cshtml">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="account.cshtml">Login / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @using DataBaseConnection;
+    @using DataBaseConnection.Table
+    @{
+        bool valid = true;
+        bool get = true;
+
+        if (IsPost)
+        {
+            get = false;
+        }
+
+        var data = new RefTableConnection();
+
+        Candidat candidat = data.GetEmployeur(int.Parse(Request.Params["name"]));
+
+    }
+    <!-- Masthead -->
+    <header class="masthead" style="height:auto">
+        <br />
+        <div class="row ">
+            <div class="col-md-auto align-self-md-auto" style="width:10%"></div>
+            <div class="col-md-auto align-self-md-auto" style="width:45%">
+
+                <div class="col-lg-10 align-self-end">
+                    <h2 class="text-white navbar-brand js-scroll-trigger">Employeur : </h2> 
+                    <h2 class="text-white navbar-brand js-scroll-trigger">@candidat.data["prenom"] &nbsp; @candidat.data["nom"] </h2> <br>
+                    <h1 class="text-white navbar-brand js-scroll-trigger">Créer une offre </h1> <br><br>
+
+
+                    <form name="jobTitle" class="text-white">
+                        Job Name :<br>
+                        <input type="text" name="Job" /><br>
+                        <br>
+                        Province/Region :<br>
+                        <input type="text" name="Regions" /><br>
+                        <br>
+                        Salary Range:<br>
+                        <input type="text" placeholder="Minimum" name="SalaryLow" /> <input type="text" placeholder="Maximum" name="SalaryMax" /><br>
+                        <br>
+                        Years of Experience :<br>
+                        <input type="text" placeholder="Minimum" name="ExperienceLow" /> <input type="text" placeholder="(optional)" name="EmperienceMax" /><br>
+                        <br>
+                        Work Availability Desired :<br>
+                        <select name="contrat">
+                            <option value="FullPer">full-time Permanent</option>
+                            <option value="FullTemp">full-time Temporary</option>
+                            <option value="PartPer">Part-time Permanent</option>
+                            <option value="PartTemp">Part-Time Temporary</option>
+                            <option value="Cont">Contractual</option>
+                        </select><br>
+                        <br>
+                        Languages :<br>
+                        <select name="Language">
+                            <option value="low">English</option>
+                            <option value="mid">French</option>
+                            <option value="top">Bilingual</option>
+                        </select><br>
+                        <br>
+
+                        <a class="btn btn-default" style="background-color : cadetblue; color : white ;
+                  border-color : black ; font-size : 15px">Create Job</a>
+                        <br> <br>
+                    </form>
+                   
+                </div>
+                
+            </div>
+                    <div class="col-md-auto align-self-md-auto" style="width:45%">
+                        @using AgencePlacementUi.Class
+                        @{
+                            var jobs = data.GetOffers(int.Parse(candidat.data["id"]));
+
+                        }
+                        <br /><br />
+                        <h1 class="text-white navbar-brand js-scroll-trigger">1 offre(s) publiée(s) </h1> 
+                       <br /> <h2 class="text-white navbar-brand js-scroll-trigger">classée(s) par popularité </h2> <br> 
+
+                       
+                        <button type="button" class="btn btn-default" style="background-color :cadetblue; color : white ;
+                        border-color : black ; font-size : 15px" onclick="location.href='Employeur.cshtml?name=@int.Parse(Request.Params["name"])';">
+                            Refresh
+                        </button> <br> <br>
+                        <div class="btn-group" style="display:block; width:50%; max-height:60%; overflow-y:scroll;">
+                            @if (jobs.Count < 1)
+                            {<button style="width:100%;">Aucune offre</button>}
+
+                            @foreach (Offer c in jobs)
+                            {
+                             <button style="width:100%;" onclick="location.href='Job.cshtml?name=@int.Parse(Request.Params["name"])&offer=@c.data["id"]';">
+                                 @c.data["application"] Applicant(s) - @c.data["nom"]
+                             </button>
+                            }
+
+
+                        </div>
+                       
+                
+               
+                    </div>
+            
+        </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Agence de placement </title>
+    <!-- Font Awesome Icons -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS - Includes Bootstrap -->
+    <link href="css/creative.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="PAGES/index.cshtml">CYBERTECH</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="PAGES/index.cshtml" >About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="PAGES/account.cshtml">Login / Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead -->
+    <header class="masthead" style="height:auto">
+        <div class="container h-100">
+
+            <div class="col-lg-10 align-self-end">
+                <h1 style="margin-bottom:-5cm;" class="text-white navbar-brand js-scroll-trigger">Page Employe  </h1>
+
+                <!--buttons should be placed dynamically, these are placeholders-->
+                <input onclick="location.href='JobCandidates.html';" id="buttonsEmployer" type="button" value="8    Applicants - Being a decent person" /> 
+                <input onclick="location.href='JobCandidates.html';" id="buttonsEmployer" type="button" value="69   Applicants - Progaming" />
+                <input onclick="location.href='JobCandidates.html';" id="buttonsEmployer" type="button" value="2323 Applicants - Bikini Car Wash" />
+                <input onclick="location.href='JobCandidates.html';" id="buttonsEmployer" type="button" value="420  Applicants - Male bikini Car Wash (diversity)" />
+
+                <h2 style="color:white; position: relative; top:8px; padding-left: 14cm;">Current Jobs</h2>
+
+                <h2 style="color:white; position:relative; top:-1cm;"> Create Job</h2>
+
+                <form name="jobTitle" class="text-white">
+                    Job Name :<br>
+                    <input type="text" name="Job" /><br>
+                    <br>
+                    Province/Region :<br>
+                    <input type="text" name="Regions" /><br>
+                    <br>
+                    Salary Range:<br>
+                    <input type="text" placeholder="Minimum" name="SalaryLow" /> <input type="text" placeholder="Maximum" name="SalaryMax" /><br>
+                    <br>
+                    Years of Experience :<br>
+                    <input type="text" placeholder="Minimum" name="ExperienceLow" /> <input type="text" placeholder="(optional)" name="EmperienceMax" /><br>
+                    <br>
+                    Work Availability Desired :<br>
+                    <select name="contrat">
+                        <option value="FullPer">full-time Permanent</option>
+                        <option value="FullTemp">full-time Temporary</option>
+                        <option value="PartPer">Part-time Permanent</option>
+                        <option value="PartTemp">Part-Time Temporary</option>
+                        <option value="Cont">Contractual</option>
+
+                    </select><br>
+                    <br>
+                    Languages :<br>
+                    <select name="Language">
+                        <option value="low">English</option>
+                        <option value="mid">French</option>
+                        <option value="top">Bilingual</option>
+                    </select><br>
+                    <br>
+                    CV Required? : <input type="checkbox" name="CvCheck"><br><br>
+                    <a class="btn btn-default" style="background-color : cadetblue; color : white ;
+                  border-color : black ; font-size : 15px">Create Job</a>
+                    <br > <br >
+                </form>
+            </div>
+
+
+
+
+        </div>
+        
+    </header>
+
+</body>
+</html>
