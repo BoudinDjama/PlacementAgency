@@ -32,7 +32,6 @@
        
 
         var data = new RefTableConnection();
-        System.Diagnostics.Debug.Write("The value for reques param is: " +Request.Params["name"] + "\n");
         Employeur employeur = data.GetEmployeur(int.Parse(Request.Params["name"]));
         
 

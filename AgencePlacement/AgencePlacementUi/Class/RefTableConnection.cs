@@ -3,6 +3,7 @@ using DataBaseConnection.Table;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web.Helpers;
 
@@ -397,7 +398,7 @@ namespace DataBaseConnection
             }
 
 
-            string query = $"SELECT * , COUNT(c.OFFRE) as application FROM offer o left join correspondance c on c.OFFRE = o.ID where o.id = {id}";
+            string query = $"SELECT o.*, COALESCE(COUNT(c.id_offre), 0) AS application FROM offre o LEFT JOIN correspondance c ON c.id_offre = o.id_offre WHERE o.id_offre = {id} GROUP BY o.id_offre";
 
 
 
@@ -416,18 +417,20 @@ namespace DataBaseConnection
                 {
 
                     readed = true;
-                    c.data.Add("nom", dataReader["nom"].ToString());
+                    c.data.Add("nom", dataReader["nom_poste"].ToString());
                     c.data.Add("id_employeur", dataReader["id_employeur"].ToString());
-                    c.data.Add("id", dataReader["id"].ToString());
-                    c.data.Add("descri", dataReader["descri"].ToString());
-                    c.data.Add("poste", dataReader["poste"].ToString());
-                    c.data.Add("domaine", dataReader["domaine"].ToString());
+                    c.data.Add("id", dataReader["id_offre"].ToString());
+                    c.data.Add("descri", dataReader["description_poste"].ToString());
+                   // c.data.Add("poste", dataReader["poste"].ToString());
+                   // c.data.Add("domaine", dataReader["domaine"].ToString());
                     c.data.Add("region", dataReader["region"].ToString());
-                    c.data.Add("diplome", dataReader["diplome"].ToString());
-                    c.data.Add("permis_conduire", dataReader["permis"].ToString());
-                    c.data.Add("langue", dataReader["langue"].ToString());
-                    c.data.Add("experience", dataReader["experience"].ToString());
-                    c.data.Add("salaire", dataReader["salaire"].ToString());
+                  //  c.data.Add("diplome", dataReader["diplome"].ToString());
+                   // c.data.Add("permis_conduire", dataReader["permis"].ToString());
+                    c.data.Add("langue", dataReader["Langue"].ToString());
+                    c.data.Add("experience_min", dataReader["experience_min"].ToString());
+                    c.data.Add("experience_max", dataReader["experience_max"].ToString());
+                    c.data.Add("salaire_min", dataReader["salaire_min"].ToString());
+                    c.data.Add("salaire_max", dataReader["salaire_max"].ToString());
                     c.data.Add("horaire", dataReader["horaire"].ToString());
                     c.data.Add("application", dataReader["application"].ToString());
 
@@ -436,7 +439,6 @@ namespace DataBaseConnection
             }
             catch
             {
-                //Console.Write("error");
                 CloseConnection();
 
                 return null;

@@ -26,7 +26,7 @@
 
         Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
         Offer offer = data.GetOffer(int.Parse(Request.Params["offer"]));
-
+        System.Diagnostics.Debug.WriteLine("name of post is: " + int.Parse(Request.Params["offer"]));
     }
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
         <div class="container">
@@ -59,16 +59,16 @@
                 <h2 style="color:white">@offer.data["nom"] </h2>
                 <br />
                 <p style="color:white">Description: @offer.data["descri"]</p>
-                <p style="color:white">Poste: @data.GetFieldById(int.Parse(offer.data["poste"]), "poste")</p>
-                <p style="color:white">Domaine: @data.GetFieldById(int.Parse(offer.data["domaine"]), "domaine")</p>
-                <p style="color:white">Région: @data.GetFieldById(int.Parse(offer.data["region"]), "region")</p>
+               
+                
+                <p style="color:white">Région: @offer.data["region"]</p>
 
-                <p style="color:white">Diplome: @data.GetFieldById(int.Parse(offer.data["diplome"]), "diplome")</p>
-                <p style="color:white">Permis: @data.GetFieldById(int.Parse(offer.data["permis_conduire"]), "permis_conduire")</p>
-                <p style="color:white">Langue: @data.GetFieldById(int.Parse(offer.data["langue"]), "langue")</p>
-                <p style="color:white">Expérience: @data.GetFieldById(int.Parse(offer.data["experience"]), "experience")</p>
-                <p style="color:white">Salaire: @data.GetFieldById(int.Parse(offer.data["salaire"]), "salaire")</p>
-                <p style="color:white">Horaire: @data.GetFieldById(int.Parse(offer.data["horaire"]), "horaire")</p>
+                
+                
+                <p style="color:white">Langue: @offer.data["langue"]</p>
+                <p style="color:white">Expérience: @offer.data["experience_min"]</p>
+                <p style="color:white">Salaire: @offer.data["salaire_min"]</p>
+                <p style="color:white">Horaire: @offer.data["horaire"]</p>
                 <button type="button" class="btn btn-default" style="background-color :cadetblue; color : white ;
                         border-color : black ; font-size : 15px" onclick="location.href='Employeur.cshtml?name=@int.Parse(Request.Params["name"])';">
                     Supprimer l'offre
