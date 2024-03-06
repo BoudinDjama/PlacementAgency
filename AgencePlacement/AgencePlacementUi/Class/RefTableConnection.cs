@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Helpers;
 
 namespace DataBaseConnection
 {
@@ -17,8 +18,8 @@ namespace DataBaseConnection
         private string password;
         public RefTableConnection()
         {
-            server = "127.0.0.1";
-            port = "3307";
+            server = "localhost";
+            port = "3306";
             database = "recruitment";
             uid = "root";
             password = "123456";
@@ -36,28 +37,12 @@ namespace DataBaseConnection
            // databaseConnection = new MySqlConnection(connectionString);
            
         }
-        public void TestConnection()
+        public Dictionary<string, string> TestConnection()
         {
-            List<string> result = new List<string>();
-
-            string query = "INSERT INTO CANDIDAT (candidat_nom, candidat_prenom) VALUES (@nom, @prenom)";
-            
-            
-
-
-            if (OpenConnection())
-            {
-                
-
-                MySqlCommand cmd = new MySqlCommand(query, databaseConnection);
-                //Create a data reader and Execute the command
-                
-
-                cmd.Parameters.AddWithValue("@nom", "tester");
-                cmd.Parameters.AddWithValue("@prenom", "tester");
-                //MySqlDataReader dataReader = cmd.ExecuteReader();
-            }
-            CloseConnection();
+            var myDictionary = new Dictionary<string, string>();
+            myDictionary.Add("Key1", "Value1");
+            myDictionary.Add("Key2", "Value2");
+            return myDictionary;
         }
         public int GetAccountId(string tableName, string email)
         {
@@ -65,15 +50,13 @@ namespace DataBaseConnection
             if (OpenConnection())
             {
                
-             Console.WriteLine("connected");
+             
             }
-            else
-            {
-                Console.WriteLine("failed");
-            }
+            
 
 
-            string query = $"SELECT id FROM {tableName} where email = @email";
+            string query = $"SELECT id_{tableName} FROM {tableName} where {tableName}_email = @email";
+            
 
 
 
@@ -92,7 +75,7 @@ namespace DataBaseConnection
                 dataReader.Read();
                 if (dataReader.HasRows)
                 {
-                    result = int.Parse(dataReader["id"].ToString());
+                    result = int.Parse(dataReader[$"id_{tableName}"].ToString());
                 }
                 else
                 {
@@ -130,7 +113,7 @@ namespace DataBaseConnection
             {
 
                 MySqlCommand cmd = databaseConnection.CreateCommand();
-                cmd.CommandText = $"SELECT id_candidat FROM {tableName} where candidat_email = @email";
+                cmd.CommandText = $"SELECT id_{tableName} FROM {tableName} where {tableName}_email = @email";
             cmd.Parameters.AddWithValue("@email", email);
 
                 //Create a data reader and Execute the command
@@ -168,7 +151,8 @@ namespace DataBaseConnection
             }
 
 
-            string query = $"SELECT TOP 1 nom FROM {tableName}";
+            string query = $" SELECT {tableName}_nom FROM {tableName} ORDER BY id_{tableName} limit 1;";
+           
 
 
 
@@ -355,7 +339,7 @@ namespace DataBaseConnection
             }
 
 
-            string query = $"SELECT *, COUNT(c.OFFRE) as application FROM offer o left join correspondance c on c.OFFRE = o.ID where o.id = {id}";
+            string query = $"SELECT o.id_OFFRE, COUNT(c.id_OFFRE) AS application, o.nom_poste FROM offre o LEFT JOIN correspondance c ON c.id_offre = o.id_offre WHERE o.id_employeur = {id} GROUP BY o.id_OFFRE;";
 
 
 
@@ -372,21 +356,23 @@ namespace DataBaseConnection
                 while (dataReader.Read() )
                 {
                     Offer c = new Offer();
-                    c.data.Add("nom", dataReader["nom"].ToString());
-                    c.data.Add("id_employeur", dataReader["id_employeur"].ToString());
-                    c.data.Add("id", dataReader["id"].ToString());
-                    c.data.Add("descri", dataReader["descri"].ToString());
-                    c.data.Add("poste", dataReader["poste"].ToString());
-                    c.data.Add("domaine", dataReader["domaine"].ToString());
-                    c.data.Add("region", dataReader["region"].ToString());
-                    c.data.Add("diplome", dataReader["diplome"].ToString());
-                    c.data.Add("permis_conduire", dataReader["permis"].ToString());
-                    c.data.Add("langue", dataReader["langue"].ToString());
-                    c.data.Add("experience", dataReader["experience"].ToString());
-                    c.data.Add("salaire", dataReader["salaire"].ToString());
-                    c.data.Add("horaire", dataReader["horaire"].ToString());
+                    c.data.Add("id", dataReader["id_offre"].ToString());
+                    c.data.Add("nom", dataReader["nom_poste"].ToString());
                     c.data.Add("application", dataReader["application"].ToString());
-
+                    /*
+                    // c.data.Add("id_employeur", dataReader["id_employeur"].ToString());
+                    c.data.Add("descri", dataReader["description_poste"].ToString());
+                    //c.data.Add("domaine", dataReader["domaine"].ToString());
+                    c.data.Add("region", dataReader["region"].ToString());
+                   // c.data.Add("diplome", dataReader["diplome"].ToString());
+                    c.data.Add("langue", dataReader["Langue"].ToString());
+                    c.data.Add("experiencemin", dataReader["experience_min"].ToString());
+                    c.data.Add("experiencemax", dataReader["experience_max"].ToString());
+                    c.data.Add("salairemin", dataReader["salaire_min"].ToString());
+                    c.data.Add("salairemax", dataReader["salaire_max"].ToString());
+                    c.data.Add("horaire", dataReader["horaire"].ToString());
+                  //  c.data.Add("application", dataReader["application"].ToString());
+                    */
                     o.Add(c);
                 }
 
@@ -459,16 +445,16 @@ namespace DataBaseConnection
             CloseConnection();
             return c;
         }
-        public Candidat GetEmployeur(int id)
+        public Employeur GetEmployeur(int id)
         {
-            Candidat c = new Candidat();
+            Employeur e = new Employeur();
             if (OpenConnection())
             {
                 //Console.WriteLine("connected");
             }
 
 
-            string query = $"SELECT * FROM EMPLOYEUR where id = {id}";
+            string query = $"SELECT * FROM EMPLOYEUR where id_employeur = {id}";
 
 
 
@@ -487,16 +473,15 @@ namespace DataBaseConnection
                 {
 
                     readed = true;
-                    c.data.Add("nom", dataReader["nom"].ToString());
-                    c.data.Add("prenom", dataReader["prenom"].ToString());
-                    c.data.Add("descri", dataReader["descri"].ToString());
-                    c.data.Add("pass", dataReader["pass"].ToString());
-                    c.data.Add("id", dataReader["ID"].ToString());
-                    c.data.Add("titre", dataReader["titre"].ToString());
-                    c.data.Add("email", dataReader["email"].ToString());
-                    c.data.Add("telephone", dataReader["telephone"].ToString());
-                    c.data.Add("com_pref", dataReader["com_pref"].ToString());
-                    c.data.Add("entreprise_descri", dataReader["entreprise_descri"].ToString());
+                    e.data.Add("nom", dataReader["employeur_nom"].ToString());
+                    e.data.Add("prenom", dataReader["employeur_prenom"].ToString());
+                    e.data.Add("pass", dataReader["pass"].ToString());
+                    e.data.Add("id", dataReader["id_employeur"].ToString());
+                    e.data.Add("email", dataReader["employeur_email"].ToString());
+                    e.data.Add("telephone", dataReader["employeur_telephone"].ToString());
+                    e.data.Add("com_pref", dataReader["communication_preferee"].ToString());
+                    e.data.Add("entreprise", dataReader["entreprise"].ToString());
+                    e.data.Add("entreprise_descri", dataReader["entreprise_descri"].ToString());
                     
 
                 }
@@ -511,7 +496,7 @@ namespace DataBaseConnection
             }
 
             CloseConnection();
-            return c;
+            return e;
         }
         public Candidat GetCandidat(int id)
         {
@@ -547,7 +532,7 @@ namespace DataBaseConnection
                     c.data.Add("id", dataReader["id_candidat"].ToString());
                     c.data.Add("titre", dataReader["candidat_titre"].ToString());
                     c.data.Add("email", dataReader["candidat_email"].ToString());
-                    c.data.Add("candidat_telephone", dataReader["telephone"].ToString());
+                    c.data.Add("telephone", dataReader["candidat_telephone"].ToString());
                     c.data.Add("com_pref", dataReader["communication_preferee"].ToString());
                   //  c.data.Add("poste", dataReader["poste"].ToString());
                 //    c.data.Add("domaine", dataReader["domaine"].ToString());

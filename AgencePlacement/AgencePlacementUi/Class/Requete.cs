@@ -27,16 +27,13 @@ namespace AgencePlacementUi.Class
         private void Initialize()
         {
 
-            server = "127.0.0.1";
-            port = "3307";
+            server = "localhost";
+            port = "3306";
             database = "recruitment";
             uid = "root";
             password = "123456";
 
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
+            
 
             connection = new MySqlConnection($"Database={database};Server={server};Port={port};" +
                 $"User Id={uid};Password={password}");
@@ -120,9 +117,9 @@ namespace AgencePlacementUi.Class
                 ///try
 
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO EMPLOYEUR (nom, prenom, descri, titre, email, telephone, " +
-                    "com_pref, date_modif, pass, entreprise, entreprise_descri) VALUES( @nom, @prenom,@descri , @titre, @email, @telephone, " +
-                    "(SELECT ID from TYPE_COMMUNICATION WHERE nom = @com_pref), CURDATE(), @pass, @entreprise, @entreprise_descri)";
+                cmd.CommandText = "INSERT INTO EMPLOYEUR (employeur_nom, employeur_prenom, employeur_email, employeur_telephone, " +
+                    "communication_preferee, date_modif, pass, entreprise, entreprise_descri) VALUES( @nom, @prenom , @email, @telephone, " +
+                    "(SELECT ID_TYPECOMMUNICATION from TYPECOMMUNICATION WHERE nom_TYPECOMMUNICATION = @com_pref), CURDATE(), @pass, @entreprise, @entreprise_descri)";
 
                 cmd.Parameters.AddWithValue("@nom", c.data["nom"]);
                 cmd.Parameters.AddWithValue("@prenom", c.data["prenom"]);
@@ -148,9 +145,39 @@ namespace AgencePlacementUi.Class
             }
         }
 
-       
+        public void InsertOffre(Offer o)
+        {
+            if (OpenConnection())
+            {
 
-       
+            }
+            MySqlCommand cmd;
+            {
+
+                ///try
+
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO Offre (id_employeur, nom_poste, " +
+                    "region, date_modif, salaire_min, salaire_max, experience_min, experience_max, horaire, langue) VALUES( @id_employeur, @nom , @region, CURDATE(), @salaire_min, @salaire_max, " +
+                    "@experience_min, @experience_max, @horaire, @Langue)";
+
+                cmd.Parameters.AddWithValue("@id_employeur", o.data["id_employeur"]);
+                cmd.Parameters.AddWithValue("@nom", o.data["nom"]);
+                cmd.Parameters.AddWithValue("@region", o.data["region"]);
+
+                cmd.Parameters.AddWithValue("@salaire_min", o.data["salaire_min"]);
+                cmd.Parameters.AddWithValue("@salaire_max", o.data["salaire_max"]);
+                cmd.Parameters.AddWithValue("@experience_min", o.data["experience_min"]);
+                cmd.Parameters.AddWithValue("@experience_max", o.data["experience_max"]);
+                cmd.Parameters.AddWithValue("@horaire", o.data["horaire"]);
+                cmd.Parameters.AddWithValue("@langue", o.data["langue"]);
+                
+
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+
+        }
         
         public void InsertTheQuery(string query)
         {

@@ -14,7 +14,7 @@
     @using DataBaseConnection.Table;
     @{ 
         var data = new RefTableConnection();
-        data.TestConnection();
+        
     }
 
     <!-- Navigation -->
@@ -102,7 +102,7 @@
                         </div>
 
                         <!-- <input type="submit" value="Register"> -->
-                        <input name="sub" type="submit" value="Register" runat="server" onclick="Submit_Click()" class="btn btn-default"
+                        <input name="sub" type="submit" value="Register" runat="server" class="btn btn-default"
                                style="background-color : cornflowerblue; color : white ;
                   border-color : black ; font-size : 15px; background-color:cadetblue" />
                         <br>
@@ -136,18 +136,7 @@
 
                         
 
-                        @{
-                            /*
-                            if (!Request["type"].IsEmpty())
-                            {
-
-                                if (AccountType.Equals("Employeur")) { Response.Redirect("../Employeur.html"); }
-                                else if (AccountType.Equals("Chercheur d'emploi")) { Response.Redirect("candidat.cshtml"); }
-                            }
-
-                */
-
-                        } 
+                        
                     </form>
                 </div>
             </div>
@@ -288,6 +277,7 @@
                     // login a CANDIDAT
                     else if (loginType.Equals("Chercheur d'emploi"))
                     {
+                        
                         if (data.AccountExists("CANDIDAT", Request.Form["loginEmail"].Trim())) {
                             loginId = data.GetAccountId("CANDIDAT", Request.Form["loginEmail"].Trim());
                             Response.Redirect("candidat.cshtml?name=" + loginId);

@@ -29,17 +29,12 @@
     @using DataBaseConnection;
     @using DataBaseConnection.Table
     @{
-        bool valid = true;
-        bool get = true;
-
-        if (IsPost)
-        {
-            get = false;
-        }
+       
 
         var data = new RefTableConnection();
-
-        Candidat candidat = data.GetEmployeur(int.Parse(Request.Params["name"]));
+        System.Diagnostics.Debug.Write("The value for reques param is: " +Request.Params["name"] + "\n");
+        Employeur employeur = data.GetEmployeur(int.Parse(Request.Params["name"]));
+        
 
     }
     <!-- Masthead -->
@@ -51,11 +46,11 @@
 
                 <div class="col-lg-10 align-self-end">
                     <h2 class="text-white navbar-brand js-scroll-trigger">Employeur : </h2> 
-                    <h2 class="text-white navbar-brand js-scroll-trigger">@candidat.data["prenom"] &nbsp; @candidat.data["nom"] </h2> <br>
+                    <h2 class="text-white navbar-brand js-scroll-trigger">@employeur.data["prenom"] &nbsp; @employeur.data["nom"] </h2> <br>
                     <h1 class="text-white navbar-brand js-scroll-trigger">Créer une offre </h1> <br><br>
 
 
-                    <form name="jobTitle" class="text-white">
+                    <form name="jobTitle" action="~/PAGES/Employeur.cshtml?name=@employeur.data["id"]" method="post" class="text-white">
                         Job Name :<br>
                         <input type="text" name="Job" /><br>
                         <br>
@@ -66,7 +61,7 @@
                         <input type="text" placeholder="Minimum" name="SalaryLow" /> <input type="text" placeholder="Maximum" name="SalaryMax" /><br>
                         <br>
                         Years of Experience :<br>
-                        <input type="text" placeholder="Minimum" name="ExperienceLow" /> <input type="text" placeholder="(optional)" name="EmperienceMax" /><br>
+                        <input type="text" placeholder="Minimum" name="ExperienceLow" /> <input type="text" placeholder="(optional)" name="ExperienceMax" /><br>
                         <br>
                         Work Availability Desired :<br>
                         <select name="contrat">
@@ -84,9 +79,12 @@
                             <option value="top">Bilingual</option>
                         </select><br>
                         <br>
-
-                        <a class="btn btn-default" style="background-color : cadetblue; color : white ;
-                  border-color : black ; font-size : 15px">Create Job</a>
+                        
+                        <button name="createJob" type="submit" class="btn btn-default"
+                                style="background-color: cadetblue; color: white; border-color: black; font-size: 15px"
+                                UseSubmitBehavior="False">
+                            Create Job
+                        </button>
                         <br> <br>
                     </form>
                    
@@ -96,11 +94,37 @@
                     <div class="col-md-auto align-self-md-auto" style="width:45%">
                         @using AgencePlacementUi.Class
                         @{
-                            var jobs = data.GetOffers(int.Parse(candidat.data["id"]));
+
+                            var jobs = data.GetOffers(int.Parse(employeur.data["id"]));
+
+
+                            if (IsPost)
+                            {
+
+                                Requete requete = new Requete();
+                                Offer offer = new Offer();
+
+
+                                offer.data["id_employeur"] = employeur.data["id"];
+                                offer.data["nom"] = Request.Form["Job"];
+                                offer.data["region"] = Request.Form["Regions"];
+
+                                offer.data["salaire_min"] = Request.Form["SalaryLow"];
+                                offer.data["salaire_max"] = Request.Form["SalaryMax"];
+                                offer.data["experience_min"] = Request.Form["ExperienceLow"];
+                                offer.data["experience_max"] = Request.Form["ExperienceMax"];
+                                offer.data["horaire"] = Request.Form["contrat"];
+                                offer.data["langue"] = Request.Form["Language"];
+
+
+                                requete.InsertOffre(offer);
+                                Response.Redirect("Employeur.cshtml?name=" + int.Parse(Request.Params["name"]));
+                            }
+
 
                         }
                         <br /><br />
-                        <h1 class="text-white navbar-brand js-scroll-trigger">1 offre(s) publiée(s) </h1> 
+                        <h1 class="text-white navbar-brand js-scroll-trigger">@jobs.Count offre(s) publiée(s) </h1> 
                        <br /> <h2 class="text-white navbar-brand js-scroll-trigger">classée(s) par popularité </h2> <br> 
 
                        
@@ -112,10 +136,10 @@
                             @if (jobs.Count < 1)
                             {<button style="width:100%;">Aucune offre</button>}
 
-                            @foreach (Offer c in jobs)
+                            @foreach (Offer e in jobs)
                             {
-                             <button style="width:100%;" onclick="location.href='Job.cshtml?name=@int.Parse(Request.Params["name"])&offer=@c.data["id"]';">
-                                 @c.data["application"] Applicant(s) - @c.data["nom"]
+                             <button style="width:100%;" onclick="location.href='Job.cshtml?name=@int.Parse(Request.Params["name"])&offer=@e.data["id"]';">
+                                 @e.data["application"] Applicant(s) - @e.data["nom"]
                              </button>
                             }
 

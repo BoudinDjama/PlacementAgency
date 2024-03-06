@@ -28,6 +28,7 @@
         var data = new RefTableConnection();
 
         Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
+        var stuff = data.TestConnection();
 
     }
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
@@ -57,7 +58,7 @@
                 <div class="col-lg-10 align-self-end">
 
                     <h1 class="text-white navbar-brand js-scroll-trigger">Votre profil  </h1> <br>
-                    <h3 class="text-white navbar-brand js-scroll-trigger">@candidat.data["candidat_prenom"] &nbsp; @candidat.data["candidat_nom"]  (candidat)</h3> <br><br>
+                    <h3 class="text-white navbar-brand js-scroll-trigger">@stuff["Key1"] &nbsp; @stuff["Key2"]  (candidat)</h3> <br><br>
                   
                     <form name="job" class="text-white" method="post">
 

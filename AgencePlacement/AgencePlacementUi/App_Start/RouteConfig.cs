@@ -13,10 +13,18 @@ namespace AgencePlacementUi
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Remove the existing default route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Pages", action = "Index", id = UrlParameter.Optional }
+            );
+
+            // Add the new default route for Pages/Index.cshtml
+            routes.MapRoute(
+                name: "PagesDefault",
+                url: "Pages/{action}/{id}",
+                defaults: new { controller = "Pages", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
