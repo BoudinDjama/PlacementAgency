@@ -196,7 +196,7 @@ namespace DataBaseConnection
 
             List<string> result = new List<string>();
 
-            string query = $"SELECT nom_{tableName} FROM {tableName}";
+            string query = $"SELECT {tableName}_nom FROM {tableName}";
 
 
 
@@ -211,13 +211,13 @@ namespace DataBaseConnection
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    result.Add(dataReader[$"nom_{tableName}"].ToString());
-
+                    result.Add(dataReader[$"{tableName}_nom"].ToString());
+                    
                 }
             }
             catch
             {
-                //Console.Write("error");
+                
                 CloseConnection();
                 return new List<string> { "no result" };
             }
@@ -233,7 +233,7 @@ namespace DataBaseConnection
             }
 
 
-            string query = $"SELECT o.nom, o.ID FROM CORRESPONDANCE c inner join offer o on o.ID = c.OFFRE where candidat = {id} group by c.ID";
+            string query = $"SELECT o.nom_poste, o.id_offre FROM CORRESPONDANCE c inner join offre o on o.id_offre = c.id_offre where id_candidat = {id} group by c.id_correspondance";
 
 
 
@@ -536,13 +536,13 @@ namespace DataBaseConnection
                     c.data.Add("email", dataReader["candidat_email"].ToString());
                     c.data.Add("telephone", dataReader["candidat_telephone"].ToString());
                     c.data.Add("com_pref", dataReader["communication_preferee"].ToString());
-                  //  c.data.Add("poste", dataReader["poste"].ToString());
+                   // c.data.Add("poste", dataReader["poste"].ToString());
                 //    c.data.Add("domaine", dataReader["domaine"].ToString());
                  //   c.data.Add("region", dataReader["region"].ToString());
                     c.data.Add("diplome", dataReader["diplome"].ToString());
                  //   c.data.Add("permis_conduire", dataReader["permis"].ToString());
-               //     c.data.Add("langue", dataReader["langue"].ToString());
-              //      c.data.Add("experience", dataReader["experience"].ToString());
+                    c.data.Add("langue", dataReader["langue"].ToString());
+                    c.data.Add("experience", dataReader["candidat_experience"].ToString());
                     c.data.Add("salaire", dataReader["salaire"].ToString());
                     c.data.Add("horaire", dataReader["horaire"].ToString());
                     
@@ -551,7 +551,7 @@ namespace DataBaseConnection
             }
             catch
             {
-               
+                Debug.WriteLine("issue in the try");
                 //Console.Write("error");
                 CloseConnection();
                 

@@ -102,7 +102,7 @@
                         </div>
 
                         <!-- <input type="submit" value="Register"> -->
-                        <input name="sub" type="submit" value="Register" runat="server" class="btn btn-default"
+                        <input name="sub" type="submit" value="Register" runat="server" onclick="Submit_Click()" class="btn btn-default"
                                style="background-color : cornflowerblue; color : white ;
                   border-color : black ; font-size : 15px; background-color:cadetblue" />
                         <br>
@@ -269,6 +269,7 @@
                         if (data.AccountExists("EMPLOYEUR", Request.Form["loginEmail"].Trim()))
                         {
                             loginId = data.GetAccountId("EMPLOYEUR", Request.Form["loginEmail"].Trim());
+            
                             Response.Redirect("Employeur.cshtml?name=" + loginId);
 
 
