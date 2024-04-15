@@ -12,7 +12,7 @@
 </head>
 <body id="page-top">
 
-    
+
     <!-- Navigation -->
     @using DataBaseConnection;
     @using DataBaseConnection.Table
@@ -28,7 +28,7 @@
         var data = new RefTableConnection();
 
         Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
-       
+        
     }
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
         <div class="container">
@@ -58,11 +58,11 @@
 
                     <h1 class="text-white navbar-brand js-scroll-trigger">Votre profil  </h1> <br>
                     <h3 class="text-white navbar-brand js-scroll-trigger">@candidat.data["nom"] &nbsp; @candidat.data["prenom"]  (candidat)</h3> <br><br>
-                  
-                    <form name="job" class="text-white" method="POST" action="~/PAGES/candidat.cshtml.cshtml?name=@candidat.data["id"]">
+
+                    <form name="job" class="text-white" method="POST" action="~/PAGES/candidat.cshtml?name=@candidat.data["id"]">
 
                         Poste :<br>
-                        <input value="" type="text" name="poste" list="posteList" autocomplete="on" spellcheck="true">
+                        <input value="@candidat.data["poste"]" type="text" name="poste" list="posteList" autocomplete="on" spellcheck="true">
                         <datalist id="posteList">
                             @{List<string> poste = data.GetPoste(); }
                             @foreach (string s in poste)
@@ -78,10 +78,10 @@
                         @{ if (!poste.Contains(Request.Form["poste"])) { valid = false; }
                         }
                         <br>
-                       
-                       
+
+
                         Région :<br>
-                        <input value="" type="text" name="region" list="regionList">
+                        <input value="@candidat.data["region"]" type="text" name="region" list="regionList">
                         <datalist id="regionList">
                             @{List<string> region = data.GetRegion(); }
                             @foreach (string s in region)
@@ -115,12 +115,12 @@
                         }
                         <br>
                         Horaire :<br>
-                        <input value="@candidat.data["salaire"]" type="text" name="horaire" list="horaireList">
-                        
+                        <input value="@candidat.data["horaire"]" type="text" name="horaire" list="horaireList">
+
                         <datalist id="horaireList">
-                            
+
                             @{List<string> horaire = data.GetHoraire(); }
-                           
+
                             @foreach (string s in horaire)
                             {
                                 <option value="@s" />
@@ -135,9 +135,9 @@
                         @{ if (!horaire.Contains(Request.Form["horaire"])) { valid = false; } }
 
                         <br>
-                       
-                       
-                        
+
+
+
                         Expérience : <br>
                         <input value="@candidat.data["experience"]" type="text" name="experience" list="experienceList">
                         <datalist id="experienceList">
@@ -173,7 +173,7 @@
                         @{ if (!langue.Contains(Request.Form["langue"])) { valid = false; }
                         }
                         <br>
-                        <!-- For the upload of file-->
+                        For the upload of file
                         <label for="fileInput" class="drop-container">
                          <span class="drop-title">Drop you CV here</span>
                             <br>
@@ -182,7 +182,7 @@
                          </label>
                         <br>
                         
-                        
+
                         <button type="submit" class="btn btn-default" style="background-color :cadetblue; color : white ;
                   border-color : black ; font-size : 15px">
                             Mise à jour du profil
@@ -211,7 +211,7 @@
                 <button type="button" class="btn btn-default" style="background-color :cadetblue; color : white ;
                   border-color : black ; font-size : 15px" onclick="location.href='candidat.cshtml?name=@int.Parse(Request.Params["name"])';">
                     Refresh
-                </button> <br > <br >
+                </button> <br> <br>
                 <div class="btn-group" style="display:block; width:50%; max-height:60%; overflow-y:scroll;">
                     @if (jobs.Count < 1)
                     {<button style="width:100%;">Aucune offre</button>}
@@ -229,12 +229,9 @@
                     if (valid && !get)
                     {
                         candidat.data["poste"] = Request["poste"];
-                        candidat.data["domaine"] = Request["domaine"];
                         candidat.data["region"] = Request["region"];
                         candidat.data["salaire"] = Request["salaire"];
                         candidat.data["horaire"] = Request["horaire"];
-                        candidat.data["diplome"] = Request["diplome"];
-                        candidat.data["permis_conduire"] = Request["permis"];
                         candidat.data["experience"] = Request["experience"];
                         candidat.data["langue"] = Request["langue"];
 

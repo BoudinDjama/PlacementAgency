@@ -178,6 +178,33 @@ namespace AgencePlacementUi.Class
             }
 
         }
+
+        public void InsertCorrespondant(MatchCandidat mc)
+        {
+            if (OpenConnection())
+            {
+
+            }
+            MySqlCommand cmd;
+            {
+
+                ///try
+
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO correspondance (id_offre, id_candidat, " +
+                    "date, nb_critere, id_communication) VALUES( @id_offre, @id_candidat , CURDATE(), @nb_critere, @id_communication " +
+                    "@experience_min, @experience_max, @horaire, @Langue)";
+
+                cmd.Parameters.AddWithValue("@id_offre", mc.data["id_offre"]);
+                cmd.Parameters.AddWithValue("@id_candidat", mc.data["id_candidat"]);
+                cmd.Parameters.AddWithValue("@nb_critere", mc.data["nb_critere"]);
+                cmd.Parameters.AddWithValue("@id_communication", mc.data["id_communication"]);
+
+
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
         
         public void InsertTheQuery(string query)
         {

@@ -233,7 +233,11 @@ namespace DataBaseConnection
             }
 
 
-            string query = $"SELECT o.nom_poste, o.id_offre FROM CORRESPONDANCE c inner join offre o on o.id_offre = c.id_offre where id_candidat = {id} group by c.id_correspondance";
+            string query = $"SELECT o.id_offre, o.nom_poste " +
+                $"FROM offre o WHERE o.salaire_min <= (SELECT CAST(REPLACE(REPLACE(salaire_nom, ',', ''), '$', '') AS DECIMAL(10, 2)) AS decimal_value FROM salaire s " +
+                $"WHERE s.id_salaire = (select salaire from Candidat where id_Candidat = {id}))" +
+                $"AND o.experience_min <= (SELECT c.candidat_experience FROM Candidat c WHERE c.id_candidat = {id})" +
+                $"AND o.nom_poste = (SELECT p.poste_nom FROM poste p WHERE p.id_poste = (select poste from Candidat where id_Candidat = {id}))";
 
 
 
@@ -249,17 +253,18 @@ namespace DataBaseConnection
 
                 while (dataReader.Read())
                 {
+                
                     MatchCandidat c = new MatchCandidat();
-                    c.data.Add("id", dataReader["id"].ToString());
-                    c.data.Add("nom", dataReader["nom"].ToString());
+                    c.data.Add("id", dataReader["id_offre"].ToString());
+                    c.data.Add("nom", dataReader["nom_poste"].ToString());
                     m.Add(c);
 
                 }
 
             }
-            catch
+            catch (Exception e)
             {
-                //Console.Write("error");
+                Debug.WriteLine(e);
                 CloseConnection();
 
                 return null;
@@ -275,34 +280,34 @@ namespace DataBaseConnection
 
             }
             MySqlCommand cmd;
-            ///try
+            
+            try
             {
                 cmd = databaseConnection.CreateCommand();
-                cmd.CommandText = "update candidat " +
-                    "set nom = @nom , " +
-                    "prenom = @prenom ," +
+                cmd.CommandText = @"
+                UPDATE candidat SET 
+                candidat_nom = @nom,
+                candidat_prenom = @prenom,
+                candidat_titre = @titre,
+                pass = @pass,
+                candidat_email = @email,
+                candidat_telephone = @telephone,
+                communication_preferee = (SELECT ID_TYPECOMMUNICATION FROM TYPECOMMUNICATION WHERE TYPECOMMUNICATION_nom = @com_pref),
+                poste = (SELECT ID_poste FROM poste WHERE poste_nom = @poste),
+                region = (SELECT ID_region FROM region WHERE region_nom = @region),
+                langue = (SELECT ID_langue FROM langue WHERE langue_nom = @langue),
+                candidat_experience = (SELECT ID_experience FROM experience WHERE experience_nom = @experience),
+                salaire = (SELECT ID_salaire FROM salaire WHERE salaire_nom = @salaire),
+                horaire = (SELECT ID_horaire FROM horaire WHERE horaire_nom = @horaire)
+                WHERE id_candidat = @id";
 
-                    "descri = @descri ," +
-                                        "titre = @titre ," +
-                                                            "pass = @pass ," +
-                    "email = @email ," +
-                                        "telephone = @telephone ," +
-                    "com_pref = (SELECT ID from TYPE_COMMUNICATION WHERE nom = @com_pref) ," +
-                    "poste = (SELECT ID from poste WHERE nom = @poste) ," +
-                                        "domaine = (SELECT ID from domaine WHERE nom = @domaine) ," +
-                    "region = (SELECT ID from region WHERE nom = @region) ," +
-                                        "diplome = (SELECT ID from diplome WHERE nom = @diplome) ," +
-                                                           "permis = (SELECT ID from permis_conduire WHERE nom = @permis_conduire) ," +
-                    "langue = (SELECT ID from langue WHERE nom = @langue) ," +
-                                        "experience = (SELECT ID from experience WHERE nom = @experience) ," +
-                    "salaire = (SELECT ID from salaire WHERE nom = @salaire) ," +
-                    "horaire = (SELECT ID from horaire WHERE nom = @horaire) " +
 
-                    "where id = @id";
+
+
+
+
                 cmd.Parameters.AddWithValue("@nom", c.data["nom"]);
                 cmd.Parameters.AddWithValue("@prenom", c.data["prenom"]);
-
-                cmd.Parameters.AddWithValue("@descri", c.data["descri"]);
                 cmd.Parameters.AddWithValue("@pass", c.data["pass"]);
                 cmd.Parameters.AddWithValue("@titre", c.data["titre"]);
                 cmd.Parameters.AddWithValue("@email", c.data["email"]);
@@ -310,10 +315,7 @@ namespace DataBaseConnection
                 cmd.Parameters.AddWithValue("@com_pref", c.data["com_pref"]);
 
                 cmd.Parameters.AddWithValue("@poste", c.data["poste"]);
-                cmd.Parameters.AddWithValue("@domaine", c.data["domaine"]);
                 cmd.Parameters.AddWithValue("@region", c.data["region"]);
-                cmd.Parameters.AddWithValue("@diplome", c.data["diplome"]);
-                cmd.Parameters.AddWithValue("@permis_conduire", c.data["permis_conduire"]);
                 cmd.Parameters.AddWithValue("@langue", c.data["langue"]);
                 cmd.Parameters.AddWithValue("@experience", c.data["experience"]);
                 cmd.Parameters.AddWithValue("@salaire", c.data["salaire"]);
@@ -325,8 +327,9 @@ namespace DataBaseConnection
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
-            //catch
+            catch(Exception e)
             {
+                Debug.Write(e.ToString());
                 CloseConnection();
             }
 
@@ -510,16 +513,19 @@ namespace DataBaseConnection
 
 
             string query = $"SELECT * FROM CANDIDAT where id_candidat = {id}";
-
-
-
+           
 
             try
             {
-
+                //first query
                 MySqlCommand cmd = new MySqlCommand(query, databaseConnection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
+
+
+                //second query
+                string poste = "", region = "", salaire = "", horaire= "", experience = "", langue = "";
+
 
                 //Read the data and store them in the list
 
@@ -535,24 +541,31 @@ namespace DataBaseConnection
                     c.data.Add("titre", dataReader["candidat_titre"].ToString());
                     c.data.Add("email", dataReader["candidat_email"].ToString());
                     c.data.Add("telephone", dataReader["candidat_telephone"].ToString());
-                    c.data.Add("com_pref", dataReader["communication_preferee"].ToString());
-                   // c.data.Add("poste", dataReader["poste"].ToString());
+                    c.data.Add("com_pref", dataReader["communication_preferee"].ToString());            
                 //    c.data.Add("domaine", dataReader["domaine"].ToString());
-                 //   c.data.Add("region", dataReader["region"].ToString());
-                    c.data.Add("diplome", dataReader["diplome"].ToString());
-                 //   c.data.Add("permis_conduire", dataReader["permis"].ToString());
-                    c.data.Add("langue", dataReader["langue"].ToString());
-                    c.data.Add("experience", dataReader["candidat_experience"].ToString());
-                    c.data.Add("salaire", dataReader["salaire"].ToString());
-                    c.data.Add("horaire", dataReader["horaire"].ToString());
                     
+
+                    poste   = dataReader["poste"].ToString();
+                    region  = dataReader["region"].ToString();
+                    salaire = dataReader["salaire"].ToString();
+                    horaire = dataReader["horaire"].ToString();
+                    experience = dataReader["candidat_experience"].ToString();
+                    langue  = dataReader["langue"].ToString();
+
+
                 }
-                
+                c.data.Add("poste", GetForeignKeyValue("poste", poste));
+                c.data.Add("region", GetForeignKeyValue("region", region));
+                c.data.Add("salaire", GetForeignKeyValue("salaire", salaire));
+                c.data.Add("horaire", GetForeignKeyValue("horaire", horaire));
+                c.data.Add("experience", GetForeignKeyValue("experience", experience));
+                c.data.Add("langue", GetForeignKeyValue("langue", langue));
+
+
             }
-            catch
+            catch (Exception ex)
             {
-                Debug.WriteLine("issue in the try");
-                //Console.Write("error");
+                Debug.WriteLine("the following is the error:" + ex);
                 CloseConnection();
                 
                 return null;
@@ -594,6 +607,52 @@ namespace DataBaseConnection
             c.data = clone;
             return c;
         }
+
+
+        public string GetForeignKeyValue(string tableName, string key)
+        {
+            CloseConnection();
+
+            if (OpenConnection()) { }
+
+            try
+            {
+                
+
+                string query = $"SELECT {tableName}_nom FROM {tableName} where id_{tableName} = @keyValue";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, databaseConnection))
+                {
+                    cmd.Parameters.AddWithValue("@keyValue", key);
+
+                    using (MySqlDataReader dataReader = cmd.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            return dataReader.GetString(0);
+                        }
+                        else
+                        {
+                            // Handle no results (e.g., log or return a default value)
+                            return null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle specific exceptions (e.g., log or throw)
+                Debug.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+           
+        }
+
+
         public string GetFieldById(int id, string tableName)
         {
            
@@ -606,8 +665,8 @@ namespace DataBaseConnection
 
             string result ;
 
-            string query = $"SELECT candidat_nom FROM {tableName} where id_{tableName} = {id}";
-
+            string query = $"SELECT {tableName}_nom FROM {tableName} where id_{tableName} = {id}";
+            
 
 
 
@@ -620,13 +679,13 @@ namespace DataBaseConnection
 
                 //Read the data and store them in the list
                 dataReader.Read();
-                    result = dataReader["nom"].ToString();
+                    result = dataReader[$"{tableName}_nom"].ToString();
 
                 
             }
-            catch
+            catch (Exception e)
             {
-                //Console.Write("error");
+                Debug.WriteLine("issue is: " +  e);
                 CloseConnection();
                 return "Error";
             }
