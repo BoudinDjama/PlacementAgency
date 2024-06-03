@@ -23,6 +23,7 @@
         Candidat candidat = data.GetCandidat(int.Parse(Request.Params["name"]));
         Offer offer = data.GetOffer(int.Parse(Request.Params["offer"]));
         Employeur employeur = data.GetEmployeur(int.Parse(offer.data["id_employeur"]));
+        bool buttonClicked = false;
     }
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav" style=" background-color:cadetblue">
         <div class="container">
@@ -74,11 +75,14 @@
                 <p style="color:white">Description de l'entrprise: @employeur.data["entreprise_descri"] </p>
                 <p style="color:white">Email: @employeur.data["email"] </p>
                 <p style="color:white">Telephone: @employeur.data["telephone"] </p>
-                <p style="color:white">Préférence: @data.GetFieldById(int.Parse(employeur.data["com_pref"]), "type_communication") </p>
+                <p style="color:white">Préférence: @data.GetFieldById(int.Parse(employeur.data["com_pref"]), "typecommunication") </p>
 
-                <input name="sub" id="subButton" type="submit" value="Apply" class="btn btn-default"
-                       style="background-color : cornflowerblue; color : white ;
-                  border-color : black ; font-size : 15px; background-color:cadetblue" />
+                <form name="application" class="text-white" method="post">
+
+                    <input name="sub" type="submit" value="Apply" runat="server" onclick="Submit_Click()" class="btn btn-default"
+                           style="background-color : cornflowerblue; color : white ;
+border-color : black ; font-size : 15px; background-color:cadetblue" />
+                    </form>
 
             </div>
 
@@ -86,24 +90,27 @@
         <br /><br /><br /><br /><br /><br /><br /><br />
     </header>
 
-    
-        @using AgencePlacementUi.Class
-        @{
 
-            Requete requete = new Requete();
-            MatchCandidat matchCandidat = new MatchCandidat();
+        
+         @{
 
-            if (IsPost)
-            {
-                matchCandidat.data["id_offre"] = Request.Params["offer"];
-                matchCandidat.data["id_candidat"] = Request.Params["name"];
-                matchCandidat.data["nb_critere"] = "5";
-                matchCandidat.data["id_communication"] = "1";
+             Requete requete = new Requete();
+             MatchCandidat matchCandidat = new MatchCandidat();
 
-                requete.InsertCorrespondant(matchCandidat);
+             if (IsPost)
+             {
+                 
+                 matchCandidat.data["id_offre"] = Request.Params["offer"];
+                 matchCandidat.data["id_candidat"] = Request.Params["name"];
+                 matchCandidat.data["nb_critere"] = "5";
+                 matchCandidat.data["id_communication"] = "1";
 
-            }
-        }
-        </body>
+                 requete.InsertCorrespondant(matchCandidat);
+
+                 Response.Redirect("candidat.cshtml?name=" + int.Parse(Request.Params["name"]) + "&offer=" + int.Parse(Request.Params["offer"]));
+             }
+             
+    }
+</body>
 </html>
 

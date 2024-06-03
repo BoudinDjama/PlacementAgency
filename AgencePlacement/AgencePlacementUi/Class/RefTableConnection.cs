@@ -1,5 +1,6 @@
 ﻿using AgencePlacementUi.Class;
 using DataBaseConnection.Table;
+using Microsoft.Ajax.Utilities;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -756,6 +757,14 @@ namespace DataBaseConnection
                 return false;
             }
         }
+       /* public bool AlreadyApplied(int candidatId, int offerId)
+        {
+            if(OpenConnection()) { }
+            string query = $"SELECT {tableName}_nom FROM {tableName} where id_{tableName} = {id}";
+
+        }
+        */
+
         private bool CloseConnection()
         {
             try

@@ -1,0 +1,402 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|c:\\users\\aboudin\\downloads\\placementagency\\agenceplacement\\agenceplacementui\\pages\\account.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\account.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\pages\\employeur.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\employeur.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|c:\\users\\aboudin\\downloads\\placementagency\\agenceplacement\\agenceplacementui\\class\\reftableconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\class\\reftableconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\pages\\matchcandidat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\matchcandidat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\class\\requete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\class\\requete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\class\\employeur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\class\\employeur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\pages\\candidat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\candidat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\class\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\class\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\pages\\job.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\job.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\jobcandidates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\jobcandidates.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B756C15-633D-4491-A28C-BD7939666BFD}|Solution Items{5B756C15-633D-4491-A28C-BD7939666BFD}|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5B756C15-633D-4491-A28C-BD7939666BFD}|Solution Items{5B756C15-633D-4491-A28C-BD7939666BFD}|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\css\\style6.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\css\\style6.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\css\\fontawesome-all.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\css\\fontawesome-all.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\css\\creative.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\css\\creative.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\agenceplacementui\\css\\creative.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E12C1247-078C-4C4C-93C4-2D42562AEFC7}|AgencePlacementUi\\AgencePlacementUi.csproj|solutionrelative:agenceplacementui\\css\\creative.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MatchCandidat.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\MatchCandidat.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\MatchCandidat.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\MatchCandidat.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\MatchCandidat.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-28T16:45:47.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Job.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\Job.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\Job.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\Job.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\Job.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAWwEYAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2024-03-06T17:10:07.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Requete.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Requete.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Class\\Requete.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Requete.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Class\\Requete.cs",
+              "ViewState": "AQIAAMMAAAAAAAAAAAAMwFIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-06T16:54:56.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "account.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\account.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\account.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\account.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\account.cshtml",
+              "ViewState": "AQIAAKgAAAAAAAAAAAAAAJAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-26T14:24:36.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T14:24:36.516Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "AgencePlacementUi\\App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T14:24:36.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "candidat.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\candidat.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\candidat.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\candidat.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\candidat.cshtml",
+              "ViewState": "AQIAALAAAAAAAAAAAAAAAO8AAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-06T21:11:45.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Employeur.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Employeur.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Class\\Employeur.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Employeur.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Class\\Employeur.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T14:24:36.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Web.config",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Web.config",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Web.config",
+              "RelativeToolTip": "AgencePlacementUi\\Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-02-26T14:24:36.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\style.css",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\css\\style.css",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\style.css",
+              "RelativeToolTip": "AgencePlacementUi\\css\\style.css",
+              "ViewState": "AQIAAKUKAAAAAAAAAAAqwMMKAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-26T14:24:36.532Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Employeur.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\Employeur.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\Employeur.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\Employeur.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\Employeur.cshtml",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAAAGQAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-27T15:43:11.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "index.cshtml",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\index.cshtml",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\PAGES\\index.cshtml",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\PAGES\\index.cshtml",
+              "RelativeToolTip": "AgencePlacementUi\\PAGES\\index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002242|",
+              "WhenOpened": "2024-03-06T20:22:27.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Offer.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Offer.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Class\\Offer.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\Offer.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Class\\Offer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T14:24:36.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "JobCandidates.html",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\JobCandidates.html",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\JobCandidates.html",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\JobCandidates.html",
+              "RelativeToolTip": "AgencePlacementUi\\JobCandidates.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-02-26T14:24:36.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\packages.config",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\packages.config",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\packages.config",
+              "RelativeToolTip": "AgencePlacementUi\\packages.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-02-26T14:24:36.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Global.asax.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Global.asax.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Global.asax.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-02-26T14:24:36.524Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-02-26T14:24:36.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "fontawesome-all.css",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\fontawesome-all.css",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\css\\fontawesome-all.css",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\fontawesome-all.css",
+              "RelativeToolTip": "AgencePlacementUi\\css\\fontawesome-all.css",
+              "ViewState": "AQIAAE8KAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-26T14:24:36.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "style6.css",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\style6.css",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\css\\style6.css",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\style6.css",
+              "RelativeToolTip": "AgencePlacementUi\\css\\style6.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-26T14:24:36.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "creative.min.css",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\creative.min.css",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\css\\creative.min.css",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\creative.min.css",
+              "RelativeToolTip": "AgencePlacementUi\\css\\creative.min.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-26T14:24:36.534Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "creative.css",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\creative.css",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\css\\creative.css",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\css\\creative.css",
+              "RelativeToolTip": "AgencePlacementUi\\css\\creative.css",
+              "ViewState": "AQIAALsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-26T14:24:36.535Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "f5c8634b-55f5-414e-8b35-41559248413e",
+        "Display": 1,
+        "X": 96,
+        "Y": -20,
+        "Width": 1684,
+        "Height": 636,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RefTableConnection.cs",
+              "DocumentMoniker": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\RefTableConnection.cs",
+              "RelativeDocumentMoniker": "AgencePlacementUi\\Class\\RefTableConnection.cs",
+              "ToolTip": "C:\\Users\\aboudin\\Downloads\\PlacementAgency\\AgencePlacement\\AgencePlacementUi\\Class\\RefTableConnection.cs",
+              "RelativeToolTip": "AgencePlacementUi\\Class\\RefTableConnection.cs",
+              "ViewState": "AQIAAOQCAAAAAAAAAAAAAP0CAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T14:24:36.314Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

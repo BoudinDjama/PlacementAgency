@@ -151,7 +151,6 @@ C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\System.Web.WebPages.Razor.dll
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\WebGrease.dll
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\Google.Protobuf.xml
-C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\MySql.Data.xml
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\System.Web.Razor.xml
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\System.Web.Helpers.xml
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\System.Web.Mvc.xml
@@ -170,6 +169,6 @@ C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\bin\fr\System.Web.WebPages.Razor.resources.dll
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePlacementUi.csproj.AssemblyReference.cache
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePlacementUi.csproj.CoreCompileInputs.cache
-C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePlacementUi.csproj.CopyComplete
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePlacementUi.dll
 C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePlacementUi.pdb
+C:\Users\aboudin\Downloads\PlacementAgency\AgencePlacement\AgencePlacementUi\obj\Debug\AgencePl.AE221609.Up2Date

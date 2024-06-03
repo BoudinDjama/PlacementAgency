@@ -80,7 +80,7 @@ namespace AgencePlacementUi.Class
                     cmd = connection.CreateCommand();
                     cmd.CommandText = "INSERT INTO CANDIDAT (candidat_nom, candidat_prenom, candidat_titre, candidat_email, candidat_telephone, " +
                         "communication_preferee, date_modif, pass) VALUES( @nom, @prenom , @titre, @email, @telephone, " +
-                        "(SELECT ID_TYPECOMMUNICATION from TYPECOMMUNICATION WHERE nom_TYPECOMMUNICATION = @com_pref), CURDATE(), @pass)";
+                        "(SELECT ID_TYPECOMMUNICATION from TYPECOMMUNICATION WHERE TYPECOMMUNICATION_nom = @com_pref), CURDATE(), @pass)";
 
                     cmd.Parameters.AddWithValue("@nom", c.data["candidat_nom"]);
                     cmd.Parameters.AddWithValue("@prenom", c.data["candidat_prenom"]);
@@ -119,7 +119,7 @@ namespace AgencePlacementUi.Class
                 cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO EMPLOYEUR (employeur_nom, employeur_prenom, employeur_email, employeur_telephone, " +
                     "communication_preferee, date_modif, pass, entreprise, entreprise_descri) VALUES( @nom, @prenom , @email, @telephone, " +
-                    "(SELECT ID_TYPECOMMUNICATION from TYPECOMMUNICATION WHERE nom_TYPECOMMUNICATION = @com_pref), CURDATE(), @pass, @entreprise, @entreprise_descri)";
+                    "(SELECT ID_TYPECOMMUNICATION from TYPECOMMUNICATION WHERE TYPECOMMUNICATION_nom = @com_pref), CURDATE(), @pass, @entreprise, @entreprise_descri)";
 
                 cmd.Parameters.AddWithValue("@nom", c.data["nom"]);
                 cmd.Parameters.AddWithValue("@prenom", c.data["prenom"]);
@@ -192,8 +192,7 @@ namespace AgencePlacementUi.Class
 
                 cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO correspondance (id_offre, id_candidat, " +
-                    "date, nb_critere, id_communication) VALUES( @id_offre, @id_candidat , CURDATE(), @nb_critere, @id_communication " +
-                    "@experience_min, @experience_max, @horaire, @Langue)";
+                    "date, nb_critere, id_communication) VALUES( @id_offre, @id_candidat , CURDATE(), @nb_critere, @id_communication)";
 
                 cmd.Parameters.AddWithValue("@id_offre", mc.data["id_offre"]);
                 cmd.Parameters.AddWithValue("@id_candidat", mc.data["id_candidat"]);
